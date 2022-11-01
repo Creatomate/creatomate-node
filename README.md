@@ -10,7 +10,7 @@ As an alternative to creating everything from code, Creatomate also comes with a
 
 ## Usage
 
-Examples of how to use this library can be found at: [https://github.com/creatomate/node-examples](https://github.com/creatomate/node-examples). For general information about the Creatomate API, check out the [Creatomate API docs](https://creatomate.com/doc/api/introduction).
+Examples of how to use this library can be found at: [https://github.com/creatomate/node-examples](https://github.com/creatomate/node-examples). For general information about the Creatomate API, check out the [Creatomate API docs](https://creatomate.com/docs/api/introduction).
 
 ### Installation
 
@@ -83,8 +83,8 @@ client.render({ source })
 
 ## Issues & Comments
 
-Feel free to contact us if you encounter any issues with the library or Creatomate API.
+Feel free to contact us if you encounter any issues with the library or Creatomate API at [support@creatomate.com](mailto:support@creatomate.com).
 
 ## License
 
-The Creatomate JavaScript Library is licensed under the MIT license. Please refer to the [LICENSE](https://github.com/ActiveCampaign/postmark.js/blob/main/LICENSE) for more information.
+The Creatomate JavaScript Library is licensed under the MIT license. Please refer to the [LICENSE](https://github.com/Creatomate/creatomate-node/blob/main/LICENSE) for more information.
