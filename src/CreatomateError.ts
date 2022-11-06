@@ -7,6 +7,9 @@ export class BadRequestError extends CreatomateError {
 export class InvalidApiKeyError extends CreatomateError {
 }
 
+export class InsufficientCreditsError extends CreatomateError {
+}
+
 export class RateLimitExceededError extends CreatomateError {
 }
 

@@ -5,6 +5,7 @@ import {
   BadRequestError,
   ConnectionError,
   CreatomateError,
+  InsufficientCreditsError,
   InvalidApiKeyError,
   RateLimitExceededError,
   TimeoutError,
@@ -131,9 +132,11 @@ export class Client {
     if (!error.response) {
       return new ConnectionError();
     } else if (error.response.status === 400) {
-      return new BadRequestError();
+      return new BadRequestError(error.response?.data?.hint);
     } else if (error.response.status === 401) {
       return new InvalidApiKeyError();
+    } else if (error.response.status === 402) {
+      return new InsufficientCreditsError();
     } else if (error.response.status === 429) {
       return new RateLimitExceededError();
     } else {
