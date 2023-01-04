@@ -32,7 +32,7 @@ export class Client {
   /**
    * Starts a new render and awaits its completion.
    * @param options Render options.
-   * @param timeout Maximum time in seconds to wait for the render to complete. If the render is finished within the
+   * @param timeout Maximum time in seconds to wait for the render to complete. If the render is not finished within the
    *    specified time, a 'TimeoutError' is thrown.
    */
   async render(options: RenderOptions, timeout = 900): Promise<Render[]> {
