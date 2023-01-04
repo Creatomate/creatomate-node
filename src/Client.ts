@@ -13,7 +13,7 @@ import {
 } from './CreatomateError';
 import { transformObjectKeys, transformCamelToSnakeCase, transformSnakeToCamelCase } from './utility';
 
-const CLIENT_VERSION = '1.0.2';
+const CLIENT_VERSION = '1.0.3';
 
 export class Client {
   private readonly apiKey: string;
