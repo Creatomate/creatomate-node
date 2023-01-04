@@ -106,7 +106,7 @@ export interface CompositionProperties extends ElementProperties {
   /**
    * Elements that make up the composition.
    */
-  elements?: ElementBase<any>[];
+  elements?: Array<ElementBase<any> | Record<string, any>>;
 }
 
 export class Composition extends ElementBase<CompositionProperties> {
@@ -115,7 +115,9 @@ export class Composition extends ElementBase<CompositionProperties> {
   toMap(): Record<string, any> {
     return {
       ...super.toMap(),
-      elements: this.properties.elements?.map((element) => element.toMap()),
+      elements: this.properties.elements?.map((element) =>
+        element instanceof ElementBase ? element.toMap() : element,
+      ),
     };
   }
 }

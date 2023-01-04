@@ -9,7 +9,7 @@ export interface RenderOptions {
   maxHeight?: number;
   templateId?: string;
   tags?: string[];
-  source?: Source;
+  source?: Source | Record<string, any>;
   modifications?: Record<string, string | number>;
   webhookUrl?: string;
   metadata?: string;

@@ -112,7 +112,7 @@ export interface SourceProperties {
   /**
    * Elements that make up the render.
    */
-  elements?: ElementBase<any>[];
+  elements?: Array<ElementBase<any> | Record<string, any>>;
 }
 
 export class Source {
@@ -122,7 +122,9 @@ export class Source {
   toMap(): Record<string, any> {
     return transformObjectKeys(transformCamelToSnakeCase, {
       ...this.properties,
-      elements: this.properties.elements?.map((element) => element.toMap()),
+      elements: this.properties.elements?.map((element) =>
+        element instanceof ElementBase ? element.toMap() : element,
+      ),
     });
   }
 }

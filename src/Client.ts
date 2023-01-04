@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse, Method } from 'axios';
 import { Render } from './Render';
 import { RenderOptions } from './RenderOptions';
+import { Source } from './Source';
 import {
   BadRequestError,
   ConnectionError,
@@ -95,7 +96,11 @@ export class Client {
   async startRender(options: RenderOptions): Promise<Render[]> {
     const response = await this.httpRequest<Render[]>('POST', '/renders', {
       ...transformObjectKeys(transformCamelToSnakeCase, options),
-      ...(options.source ? { source: options.source.toMap() } : {}),
+      ...(options.source
+        ? {
+          source: options.source instanceof Source ? options.source.toMap() : options.source,
+        }
+        : {}),
     });
 
     return response.data;
