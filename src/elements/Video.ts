@@ -6,30 +6,24 @@ export interface VideoProperties extends ElementProperties {
    * Identical to duration from the common properties, but with the addition that it can be set to "media" to make the
    * element as long as the source video.
    */
-  duration?: number | 'media';
+  duration?: number | string | 'media';
 
   /**
-   * The URL of an video (an mp4) you want to display. If it was uploaded using the template editor, it may also be its
+   * The URL of a video (an mp4) you want to display. If it was uploaded using the template editor, it may also be its
    * internal GUID.
    */
   source: ValueOrKeyframes<string>;
 
   /**
-   * This property specifies how the video should be resized to fit the element. It can be set to cover, contain, or
-   * fill.
-   */
-  fit?: Fit;
-
-  /**
    * Trims the source video to begin at the specified time (in seconds) rather than at the beginning.
    */
-  trimStart?: number;
+  trimStart?: number | string;
 
   /**
    * Trims the source video so that it stops playing after the specified duration (in seconds) rather than at the end of
    * the source video.
    */
-  trimEnd?: number;
+  trimDuration?: number | string;
 
   /**
    * When set to true, the video starts over when it reaches the end.
@@ -37,9 +31,25 @@ export interface VideoProperties extends ElementProperties {
   loop?: boolean;
 
   /**
-   * When set to true, the audio track of the video is ignored.
+   * Adjusts the volume from 0% to 100%.
    */
-  muted?: boolean;
+  volume?: number | string;
+
+  /**
+   * Fades in the volume for the specified duration (in seconds) at the beginning of the video clip.
+   */
+  audioFadeIn?: number | string;
+
+  /**
+   * Fades out the volume for the specified duration (in seconds) at the end of the video clip.
+   */
+  audioFadeOut?: number | string;
+
+  /**
+   * This property specifies how the video should be resized to fit the element. It can be set to cover, contain, or
+   * fill.
+   */
+  fit?: Fit;
 
   /**
    * The stroke.

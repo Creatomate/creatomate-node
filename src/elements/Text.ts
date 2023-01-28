@@ -29,7 +29,7 @@ export interface TextProperties extends ElementProperties {
   /**
    * The font's weight.
    */
-  fontWeight?: ValueOrKeyframes<number>;
+  fontWeight?: ValueOrKeyframes<number | string>;
 
   /**
    * The font's style (e.g., italics).
@@ -43,7 +43,7 @@ export interface TextProperties extends ElementProperties {
   fontSize?: ValueOrKeyframes<number | string>;
 
   /**
-   * 	Use this property to specify the minimum font size when the text is auto-sized.
+   * Use this property to specify the minimum font size when the text is auto-sized.
    */
   fontSizeMinimum?: ValueOrKeyframes<number | string>;
 
@@ -158,23 +158,23 @@ export interface TextProperties extends ElementProperties {
   /**
    * Horizontal padding added to the text background as a percentage of the font size.
    */
-  backgroundXPadding?: ValueOrKeyframes<number>;
+  backgroundXPadding?: ValueOrKeyframes<number | string>;
 
   /**
    * Vertical padding added to the text background as a percentage of the font size.
    */
-  backgroundYPadding?: ValueOrKeyframes<number>;
+  backgroundYPadding?: ValueOrKeyframes<number | string>;
 
   /**
    * Border radius of the text background.
    */
-  backgroundBorderRadius?: ValueOrKeyframes<number>;
+  backgroundBorderRadius?: ValueOrKeyframes<number | string>;
 
   /**
    * You can use this threshold to align the text background with other text lines. It is a percentage of the element's
    * width. A value of 0% disables alignment.
    */
-  backgroundAlignThreshold?: ValueOrKeyframes<number>;
+  backgroundAlignThreshold?: ValueOrKeyframes<number | string>;
 }
 
 export class Text extends ElementBase<TextProperties> {
