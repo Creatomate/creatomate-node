@@ -2,11 +2,11 @@
 
 Create videos and images from your Node.js application!
 
-[Creatomate](https://creatomate.com) is a media generation API for editing and rendering videos and images using code. The platform uses a JSON format to specify how a **MP4, GIF, JPEG or PNG** should be generated. It's all handled by Creatomate's render farm, so you don't have to worry about server infrastructure.
+[Creatomate](https://creatomate.com) is a media generation API for editing and rendering videos and images using code. The platform uses templates and JSON for generating **MP4**, **GIF**, **JPEG** or **PNG** files. All processing is handled by Creatomate's cloud infrastructure, so you do not need to maintain your own servers.
 
 This library makes working with the Creatomate API even easier by providing a well-structured, lightweight interface. With just a few lines of code, you can create hundreds, even thousands, of dynamic videos and images.
 
-As an alternative to creating everything from code, Creatomate also comes with an online video editor to create reusable templates. These templates can then be rendered with custom and personalized data using this Node.js library. Check out [Creatomate.com](https://creatomate.com) to learn more.
+As an alternative to creating everything from code, Creatomate also comes with an online video editor to create reusable templates. These templates can then be rendered with custom and personalized data using this Node.js library. Check out [Creatomate.com](https://creatomate.com/developers) to learn more.
 
 ## Usage
 
@@ -22,7 +22,7 @@ npm install creatomate
 
 ### Quick example
 
-You build up your video or image with elements (*videos, images, texts, shapes, compositions*), which can then be animated by using keyframes and transitions. A basic implementation looks like this. Here, two videos are concatenated together with a text overlay:
+Video or images are composed from elements (*videos, images, texts, shapes, compositions*), that can be styled, transformed, and animated. You can compare the process to building a webpage using HTML elements, except you're creating a video or image instead. A basic implementation looks like this. Here, two videos are stitched together with a text overlay:
 
 ```javascript
 const Creatomate = require('creatomate');
@@ -52,7 +52,7 @@ const source = new Creatomate.Source({
     new Creatomate.Video({
       track: 1,
       source: 'https://creatomate-static.s3.amazonaws.com/demo/video2.mp4',
-      transition: new Creatomate.FadeAnimation({ duration: 1 }),
+      transition: new Creatomate.Fade({ duration: 1 }),
     }),
     
     // Text overlay
