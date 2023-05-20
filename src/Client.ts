@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse, Method } from 'axios';
+import { performance } from 'perf_hooks';
 import { Render } from './Render';
 import { RenderOptions } from './RenderOptions';
 import { Source } from './Source';
@@ -13,7 +14,7 @@ import {
 } from './CreatomateError';
 import { transformObjectKeys, transformCamelToSnakeCase, transformSnakeToCamelCase } from './utility';
 
-const CLIENT_VERSION = '1.0.4';
+const CLIENT_VERSION = '1.0.5';
 
 export class Client {
   private readonly apiKey: string;
