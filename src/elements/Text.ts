@@ -6,6 +6,9 @@ import {
   StrokeJoin,
   TextBackground,
   TextTransform,
+  TranscriptEffect,
+  TranscriptPlacement,
+  TranscriptSplit,
   ValueOrKeyframes,
 } from '../properties';
 import { ElementBase, ElementProperties } from './ElementBase';
@@ -175,6 +178,37 @@ export interface TextProperties extends ElementProperties {
    * width. A value of 0% disables alignment.
    */
   backgroundAlignThreshold?: ValueOrKeyframes<number | string>;
+
+  /**
+   * To use auto-transcription for this text element, set it to the ID of the video element for which subtitles are to
+   * be generated.
+   */
+  transcriptSource?: string;
+
+  /**
+   * The transcript effect: color, karaoke, highlight, fade, bounce, slide, or enlarge.
+   */
+  transcriptEffect?: TranscriptEffect;
+
+  /**
+   * The transcript split: none, word, or line.
+   */
+  transcriptSplit?: TranscriptSplit;
+
+  /**
+   * The transcript placement: static, animate, or align.
+   */
+  transcriptPlacement?: TranscriptPlacement;
+
+  /**
+   * The maximum number of characters shown simultaneously.
+   */
+  transcriptMaximumLength?: number;
+
+  /**
+   * The color applied to the currently spoken text (word or line). Use this in conjunction with "transcriptSplit".
+   */
+  transcriptColor?: string;
 }
 
 export class Text extends ElementBase<TextProperties> {

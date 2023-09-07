@@ -61,7 +61,7 @@ export class Client {
         try {
           const updatedRender = await this.fetchRender(render.id);
 
-          if (updatedRender.status !== 'planned' && updatedRender.status !== 'rendering') {
+          if (updatedRender.status !== 'planned' && updatedRender.status !== 'rendering' && updatedRender.status !== 'transcribing') {
             unfinishedRenders = unfinishedRenders.filter(({ id }) => id !== render.id);
 
             finishedRenders.push(updatedRender);

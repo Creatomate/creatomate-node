@@ -1,1 +1,1 @@
-export type RenderStatus = 'planned' | 'rendering' | 'succeeded' | 'failed';
+export type RenderStatus = 'planned' | 'rendering' | 'transcribing' | 'succeeded' | 'failed';

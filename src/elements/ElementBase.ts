@@ -16,6 +16,11 @@ import { expandProperties, transformObjectKeys, transformCamelToSnakeCase } from
 
 export interface ElementProperties {
   /**
+   * A unique identifier for this element.
+   */
+  id?: string;
+
+  /**
    * The track number on which this element is placed. If you are rendering an image, you can leave this value undefined.
    */
   track?: number;
