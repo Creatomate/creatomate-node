@@ -1,6 +1,6 @@
 {
   "name": "creatomate",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Official Node.js SDK for the Creatomate video rendering API",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,6 +30,6 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^1.6.3"
   }
 }
