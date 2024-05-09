@@ -2,12 +2,17 @@ import { Fit, Stroke, StrokeCap, StrokeJoin, ValueOrKeyframes } from '../propert
 import { ElementBase, ElementProperties } from './ElementBase';
 
 export interface ImageProperties extends ElementProperties {
-
   /**
    * The URL of an image (a jpg, png, or svg) you want to display. If it was uploaded using the template editor, it may
    * also be its internal GUID.
    */
-  source: ValueOrKeyframes<string>;
+  source: string;
+
+  /**
+   * This optional parameter indicates whether to generate the image using a third-party AI platform (such as OpenAI or
+   * Stability AI). Refer to the template editor for details on setting up a provider.
+   */
+  provider?: string;
 
   /**
    * This property specifies how the image should be resized to fit the element. It can be set to cover, contain, or

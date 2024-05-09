@@ -12,7 +12,13 @@ export interface VideoProperties extends ElementProperties {
    * The URL of a video (an mp4) you want to display. If it was uploaded using the template editor, it may also be its
    * internal GUID.
    */
-  source: ValueOrKeyframes<string>;
+  source: string;
+
+  /**
+   * This optional parameter indicates whether to generate the video using a third-party AI platform (such as
+   * Stability AI). Refer to the template editor for details on setting up a provider.
+   */
+  provider?: string;
 
   /**
    * Trims the source video to begin at the specified time (in seconds) rather than at the beginning.

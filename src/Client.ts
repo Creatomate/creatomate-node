@@ -14,7 +14,7 @@ import {
 } from './CreatomateError';
 import { transformObjectKeys, transformCamelToSnakeCase, transformSnakeToCamelCase } from './utility';
 
-const CLIENT_VERSION = '1.1.0';
+const CLIENT_VERSION = '1.2.0';
 
 export class Client {
   private readonly apiKey: string;
@@ -61,7 +61,12 @@ export class Client {
         try {
           const updatedRender = await this.fetchRender(render.id);
 
-          if (updatedRender.status !== 'planned' && updatedRender.status !== 'rendering' && updatedRender.status !== 'transcribing') {
+          if (
+            updatedRender.status !== 'planned' &&
+            updatedRender.status !== 'waiting' &&
+            updatedRender.status !== 'transcribing' &&
+            updatedRender.status !== 'rendering'
+          ) {
             unfinishedRenders = unfinishedRenders.filter(({ id }) => id !== render.id);
 
             finishedRenders.push(updatedRender);
@@ -99,8 +104,8 @@ export class Client {
       ...transformObjectKeys(transformCamelToSnakeCase, options),
       ...(options.source
         ? {
-          source: options.source instanceof Source ? options.source.toMap() : options.source,
-        }
+            source: options.source instanceof Source ? options.source.toMap() : options.source,
+          }
         : {}),
     });
 

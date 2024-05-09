@@ -1,4 +1,3 @@
-import { ValueOrKeyframes } from '../properties';
 import { ElementBase, ElementProperties } from './ElementBase';
 
 export interface AudioProperties extends ElementProperties {
@@ -12,7 +11,13 @@ export interface AudioProperties extends ElementProperties {
    * The URL of an audio clip (an mp3) you want to insert. If it was uploaded using the template editor, it may also be
    * its internal GUID.
    */
-  source: ValueOrKeyframes<string>;
+  source: string;
+
+  /**
+   * This optional parameter indicates whether to generate the audio using a third-party AI platform (such as ElevenLabs
+   * or OpenAI). Refer to the template editor for details on setting up a provider.
+   */
+  provider?: string;
 
   /**
    * Trims the source audio clip to begin at the specified time (in seconds) rather than at the beginning of the audio
