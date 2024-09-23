@@ -14,7 +14,7 @@ import {
 } from './CreatomateError';
 import { transformObjectKeys, transformCamelToSnakeCase, transformSnakeToCamelCase } from './utility';
 
-const CLIENT_VERSION = '1.2.0';
+const CLIENT_VERSION = '1.2.1';
 
 export class Client {
   private readonly apiKey: string;
@@ -34,7 +34,7 @@ export class Client {
    * Starts a new render and awaits its completion.
    * @param options Render options.
    * @param timeout Maximum time in seconds to wait for the render to complete. If the render is not finished within the
-   *    specified time, a 'TimeoutError' is thrown. The maximum timeout is 15 minutes (900 seconds).
+   *    specified time, a 'TimeoutError' is thrown. The maximum timeout is 60 minutes (3600 seconds).
    */
   async render(options: RenderOptions, timeout = 900): Promise<Render[]> {
     const renders = await this.startRender(options);
@@ -81,7 +81,7 @@ export class Client {
           return;
         }
 
-        if (performance.now() - startTime >= Math.min(timeout, 900) * 1000) {
+        if (performance.now() - startTime >= Math.min(timeout, 3600) * 1000) {
           reject(new TimeoutError());
           return;
         }
